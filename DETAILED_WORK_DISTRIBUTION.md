@@ -1,6 +1,8 @@
 # Bravo Team — Detailed Work Distribution  
 ## Member 1–5 role slots, dependencies, and parallel paper + code tracks
 
+> **Weekly schedule, Gantt, member×week table, and PM rituals:** see **[PROJECT_MASTER_PLAN.md](./PROJECT_MASTER_PLAN.md)**.
+
 Use **Member 1** through **Member 5** as **five fixed role bundles**. Each real person **claims one Member number** for the whole project (or rotate only if the team explicitly agrees). This doc defines **what each slot does**, **who they depend on**, and **who depends on them**.
 
 ---
