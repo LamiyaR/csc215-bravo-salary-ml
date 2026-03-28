@@ -1,6 +1,8 @@
 # CSC-215 Project Bravo — Salary range estimation from job postings
 
-Private course project (Spring 2026). Team workspace for code, notebooks, and planning docs.
+Course project (Spring 2026). Team workspace for code, notebooks, and planning docs.
+
+**Repository:** [github.com/LamiyaR/csc215-bravo-salary-ml](https://github.com/LamiyaR/csc215-bravo-salary-ml)
 
 ## Docs (start here)
 
@@ -27,30 +29,17 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## GitHub remote — [LamiyaR](https://github.com/LamiyaR)
-
-This folder is a **Git** repo on branch **`main`**. The remote **`origin`** should point to:
-
-**`https://github.com/LamiyaR/csc215-bravo-salary-ml.git`**
-
-### Create the empty repo on GitHub (one-time)
-
-1. Open: **[Create a new repository](https://github.com/new?name=csc215-bravo-salary-ml&visibility=private)** (name prefilled: `csc215-bravo-salary-ml`, private).
-2. Click **Create repository** — do **not** add a README, `.gitignore`, or license (this project already has them).
-3. Push from your machine:
+## Clone for teammates
 
 ```bash
-cd "/Users/lamiyarampurawala/Downloads/CSC215-Bravo-SalaryML"
-git push -u origin main
+git clone https://github.com/LamiyaR/csc215-bravo-salary-ml.git
+cd csc215-bravo-salary-ml
 ```
 
-If `origin` is missing, add it first:
+**Collaborators:** Owner → **Settings** → **Collaborators** → add teammates by GitHub username.
 
-```bash
-git remote add origin https://github.com/LamiyaR/csc215-bravo-salary-ml.git
-git push -u origin main
-```
+**SSH:** `git@github.com:LamiyaR/csc215-bravo-salary-ml.git`
 
-**Collaborators:** Repo → **Settings** → **Collaborators** → invite teammates.
+## License
 
-**SSH:** `git remote set-url origin git@github.com:LamiyaR/csc215-bravo-salary-ml.git` then `git push -u origin main`.
+See [LICENSE](./LICENSE) (MIT).
