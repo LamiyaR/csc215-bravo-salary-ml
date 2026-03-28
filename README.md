@@ -27,19 +27,30 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Connect this folder to GitHub
+## GitHub remote — [LamiyaR](https://github.com/LamiyaR)
 
-This directory is already a **Git** repo (`main` branch). One teammate should:
+This folder is a **Git** repo on branch **`main`**. The remote **`origin`** should point to:
 
-1. On [github.com](https://github.com): **New repository** → name e.g. `csc215-bravo-salary-ml` → **Private** → create **without** README (this folder already has one).
-2. In this folder, run (replace `YOUR_USER` and repo name):
+**`https://github.com/LamiyaR/csc215-bravo-salary-ml.git`**
+
+### Create the empty repo on GitHub (one-time)
+
+1. Open: **[Create a new repository](https://github.com/new?name=csc215-bravo-salary-ml&visibility=private)** (name prefilled: `csc215-bravo-salary-ml`, private).
+2. Click **Create repository** — do **not** add a README, `.gitignore`, or license (this project already has them).
+3. Push from your machine:
 
 ```bash
 cd "/Users/lamiyarampurawala/Downloads/CSC215-Bravo-SalaryML"
-git remote add origin https://github.com/YOUR_USER/csc215-bravo-salary-ml.git
 git push -u origin main
 ```
 
-3. **Invite collaborators:** Repo → **Settings** → **Collaborators** → add teammates by GitHub username.
+If `origin` is missing, add it first:
 
-**SSH instead of HTTPS:** use `git@github.com:YOUR_USER/csc215-bravo-salary-ml.git` as `origin` if you use SSH keys.
+```bash
+git remote add origin https://github.com/LamiyaR/csc215-bravo-salary-ml.git
+git push -u origin main
+```
+
+**Collaborators:** Repo → **Settings** → **Collaborators** → invite teammates.
+
+**SSH:** `git remote set-url origin git@github.com:LamiyaR/csc215-bravo-salary-ml.git` then `git push -u origin main`.
