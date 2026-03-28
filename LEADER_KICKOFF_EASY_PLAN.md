@@ -44,12 +44,4 @@ M2 **co-scribes** meeting notes with M1.
 
 ---
 
-## 5. Team sign-off
 
-| Name | Member # | Agree + date |
-|------|----------|--------------|
-| | | |
-
----
-
-*End of short kickoff — use **PROJECT_MASTER_PLAN** for the rest.*
