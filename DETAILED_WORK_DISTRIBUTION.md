@@ -9,11 +9,11 @@ Use **Member 1** through **Member 5** as **five fixed role bundles**. Each real 
 
 | Member slot | Role title (maps to course sheet) | One-line summary |
 |-------------|-------------------------------------|------------------|
-| **Member 1** | Project Manager + paper integrator | Schedule, Overleaf merge, Intro/Conclusion/Ack, final PDF, cohesion |
-| **Member 2** | Analyst + literature & references | Dataset choice, EDA, data dictionary, Related Work, `.bib`, Materials (data) |
-| **Member 3** | Lead programmer | Repo layout, preprocess, transforms, features, `requirements.txt`, `README.txt`, Methods (code) |
-| **Member 4** | ML/DL + experiments | Models, CV, metrics, figures, Experiments & Results section |
-| **Member 5** | Quality control + evaluation rigor | Train/val/test rules, leakage checks, acceptance tests, Windows README check, Discussion (limits) |
+| **Member 1** | PM + **inference demo** + paper front/back | Meetings/milestones; **`04_inference_demo`** notebook/script; Abstract, Intro, Conclusion, Ack; final PDF/zip (**equal code load**) |
+| **Member 2** | Analyst + literature & references | Dataset choice, EDA, data dictionary, Related Work, `.bib`, Materials (data); **co-scribes meeting notes** |
+| **Member 3** | Programmer (prep only) | Preprocess + transforms + encoding/scaling; `requirements.txt`; README draft; **Materials (preprocess)** — **not** feature engineering |
+| **Member 4** | ML/DL + experiments | **Feature engineering** + models, CV, metrics, figures; **Materials (models/training)** + Experiments & Results |
+| **Member 5** | Quality control + evaluation rigor | `05_qc_checks` notebook, train/val/test rules, leakage, Windows README + **README sign-off with M3**, Discussion |
 
 **Team roster (fill in):**
 
@@ -33,10 +33,10 @@ Use **Member 1** through **Member 5** as **five fixed role bundles**. Each real 
 
 | Member | Depends on (must have from them before you can finish) | Who depends on this member |
 |--------|--------------------------------------------------------|----------------------------|
-| **Member 1** | Everyone (for integrated story, final numbers, and submission zip) | No one for *starting* tasks; **blocks final submission** until all inputs received |
+| **Member 1** | **Member 4**: saved model + feature schema for inference demo; everyone for paper pieces; **Member 5** for README sign-off | **Blocks** final zip/submission; starts inference work **after** first trained model export |
 | **Member 2** | Nothing to start EDA; team agreement on **target variable** definition | **Member 3** (needs schema, data path, missingness rules); **Member 5** (needs data facts for leakage analysis); **paper** Related Work + dataset description |
-| **Member 3** | **Member 2**: locked dataset + dictionary; **Member 5**: **split / leakage rules** (documented) before encoding train-only stats | **Member 4** (needs feature pipeline or matrices); **Member 5** (tests your pipeline) |
-| **Member 4** | **Member 3**: reproducible feature pipeline + training interface; **Member 5**: approved eval protocol (metrics, CV folds) | **Member 5** (needs trained runs + logs); **Member 1** (needs results for paper glue) |
+| **Member 3** | **Member 2**: locked dataset + dictionary; **Member 5**: **split / leakage rules** (documented) before encoding train-only stats | **Member 4** (needs clean transformed tabular input for **feature engineering**); **Member 5** (tests pipeline) |
+| **Member 4** | **Member 3**: preprocess/transforms output; **Member 5**: approved eval protocol (metrics, CV folds) | **Member 5** (QC); **Member 1** (**saved model** + predictions table for demo & Conclusion) |
 | **Member 5** | **Member 2**: data overview early; can define **protocol in Week 1** in parallel | **Member 3** (cannot finalize preprocessing without split rules); **Member 4** (cannot finalize experiments without acceptance criteria) |
 
 **Critical path (typical order):**  
@@ -46,11 +46,12 @@ Use **Member 1** through **Member 5** as **five fixed role bundles**. Each real 
 
 | Paper section | Lead | Cannot be finalized until… |
 |---------------|------|----------------------------|
+| Abstract | Member 1 | Introduction draft has stable problem + contribution wording |
 | Introduction / problem | Member 1 | Member 2 + Member 5 agree on **problem framing** (what is predicted, from what data) |
 | Related Work | Member 2 | Enough papers collected (can draft early with placeholders) |
 | Materials (dataset) | Member 2 | Member 2 data card done |
-| Materials (preprocess / transforms) | Member 3 | Matches committed code |
-| Materials (models) | Member 3 + Member 4 | Model list frozen |
+| Materials (preprocess / transforms) | Member 3 | Matches `02_preprocess` code |
+| Materials (models / training) | Member 4 | Matches `03_train_eval` code |
 | Experiments & Results | Member 4 | Numbers + figures from Member 4 |
 | Discussion | Member 5 | Member 4 results + Member 5 limitation notes |
 | Conclusion | Member 1 | Discussion stable |
@@ -68,7 +69,7 @@ flowchart LR
   M3[Member 3 Code]
   M4[Member 4 Models]
   M5b[Member 5 QC sign-off]
-  M1[Member 1 Paper + zip]
+  M1[Member 1 Demo + zip]
   M2 --> M3
   M5a --> M3
   M2 --> M5a
@@ -119,13 +120,14 @@ flowchart LR
 
 ## 4. Work by Member slot (tasks + handoffs)
 
-### Member 1 — Project Manager + paper integrator
+### Member 1 — Project Manager + inference demo + paper integrator
 
 | Area | Tasks |
 |------|--------|
-| **Process** | Agendas, GitHub milestones, risk log, `/docs/meetings/` notes |
-| **Paper** | Overleaf permissions; **Introduction**, **Conclusion**, **Acknowledgments**; final SCITEPRESS compile; page limit |
-| **Depends on** | Member 4 (final metrics); Member 5 (limitations text); everyone (section drafts) |
+| **Code** | `notebooks/04_inference_demo.ipynb` (or `scripts/predict.py`): load **Member 4’s saved model**, run on sample/holdout rows, table of predictions for paper/demo; **full dry-run** from clean clone before Canvas zip |
+| **Process** | Agendas, GitHub milestones, risk log, `/docs/meetings/` — **Member 2 co-scribes** notes so admin is shared |
+| **Paper** | Overleaf permissions; **Abstract**, **Introduction**, **Conclusion**, **Acknowledgments**; final SCITEPRESS compile; page limit |
+| **Depends on** | Member 4 (model artifact + input schema); Member 5 (README OK); everyone (section drafts) |
 | **Blocks** | Final submission until QC and paper complete |
 
 ### Member 2 — Analyst + literature
@@ -134,37 +136,38 @@ flowchart LR
 |------|--------|
 | **Data** | Dataset selection; license; `notebooks/01_eda.ipynb`; data dictionary |
 | **Paper** | **Related Work** (lead); **References** / `.bib`; **Materials** dataset subsection; rubric traceability table |
+| **Admin** | **Co-scribe meeting notes** with Member 1 (equalizes “invisible” PM work) |
 | **Depends on** | Team buy-in on prediction target (meeting) |
 | **Blocks** | Member 3 (needs paths + schema); Member 5 (needs variable list for leakage) |
 
-### Member 3 — Lead programmer
+### Member 3 — Programmer (preprocess / transforms)
 
 | Area | Tasks |
 |------|--------|
-| **Code** | `requirements.txt`, `README.txt`, repo layout, preprocess, transforms, features |
-| **Paper** | **Materials & Methods** (implementation — must match repo) |
+| **Code** | `requirements.txt`, **README.txt first draft**, repo layout; `notebooks/02_preprocess.ipynb` — clean, impute, encode, scale (**fit on train only**); **no** feature engineering (Member 4) |
+| **Paper** | **Materials** — preprocessing & transformations only (must match `02`) |
 | **Depends on** | **Member 2** (data); **Member 5** (split rules, train-only encoders) |
-| **Blocks** | Member 4 (training inputs) |
+| **Blocks** | Member 4 (needs transformed inputs for features + training) |
 
 ### Member 4 — ML/DL experiments
 
 | Area | Tasks |
 |------|--------|
-| **Models** | Baselines + strong models (e.g., LightGBM/XGBoost); optional NN if justified |
-| **Eval** | CV, MAE/RMSE/MAPE, plots → `figures/`, `results.csv` |
-| **Paper** | **Experiments & Results** (lead) |
-| **Depends on** | **Member 3** (callable pipeline); **Member 5** (eval protocol) |
-| **Blocks** | Member 5 (full QC); Member 1 (final numbers in Conclusion) |
+| **Code** | `notebooks/03_train_eval.ipynb`: **feature engineering** on top of Member 3 output; baselines + LightGBM/XGBoost; optional NN; **export saved model** for Member 1; CV; metrics; plots → `figures/`, `results.csv` |
+| **Paper** | **Materials** — models & training; **Experiments & Results** (lead) |
+| **Depends on** | **Member 3** (preprocess output); **Member 5** (eval protocol) |
+| **Blocks** | Member 5 (full QC); Member 1 (model + metrics for demo & Conclusion) |
 
 ### Member 5 — Quality control
 
 | Area | Tasks |
 |------|--------|
+| **Code** | `notebooks/05_qc_checks.ipynb`: reproduce metrics, residual/error plots, leakage spot-checks |
 | **QC** | Train/val/test definition; leakage checks; seeds; edge cases |
-| **Testing** | Acceptance checklist; **README** on Windows |
+| **Testing** | Acceptance checklist; **README on Windows**; **final README sign-off with Member 3** |
 | **Paper** | **Discussion** (lead): over/underfitting, failure modes |
 | **Depends on** | **Member 2** (data); later **Member 4** (runs) |
-| **Blocks** | Member 3 (must approve encoding strategy); Member 4 (defines “done” for experiments); Member 1 (honest Discussion before Conclusion) |
+| **Blocks** | Member 3 (encoding strategy); Member 4 (experiment “done”); Member 1 (Discussion before Conclusion; README before zip) |
 
 ---
 
@@ -175,10 +178,12 @@ project-bravo/
   README.txt
   requirements.txt          # Member 3
   notebooks/
-    01_eda.ipynb            # Member 2 (+ Member 3 touch)
-    02_preprocess.ipynb       # Member 3
-    03_train_eval.ipynb       # Member 4
-  figures/                    # Member 4 → Overleaf
+    01_eda.ipynb             # Member 2
+    02_preprocess.ipynb      # Member 3
+    03_train_eval.ipynb      # Member 4 (+ saves model artifact)
+    04_inference_demo.ipynb  # Member 1
+    05_qc_checks.ipynb       # Member 5
+  figures/                    # Member 4 (Member 5 may add QC plots)
   docs/
     rubric_traceability.md    # Member 2
     meetings/                 # Member 1
@@ -199,7 +204,7 @@ project-bravo/
 
 | Member | Weekly paper duty |
 |--------|-------------------|
-| **Member 1** | Section checklist in Issues; Intro/Conclusion stubs |
+| **Member 1** | Section checklist in Issues; Abstract + Intro/Conclusion stubs |
 | **Member 2** | Related Work + Materials paragraphs |
 | **Member 3** | Methods text matches latest code |
 | **Member 4** | Experiments updated; no TBD after Week 3 |
@@ -214,7 +219,7 @@ At least **two Members** edit Overleaf every week (typically **Member 1** + **Me
 | Rubric item | Primary Members |
 |-------------|-----------------|
 | Preprocessing 15% | Member 3 + Member 2 |
-| Feature engineering 15% | Member 3 + Member 4 |
+| Feature engineering 15% | Member 4 (lead) + Member 3 |
 | Transformation 10% | Member 3 |
 | Algorithm 10% | Member 4 |
 | Metrics 15% | Member 4 + Member 5 |

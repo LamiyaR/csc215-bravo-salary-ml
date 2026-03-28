@@ -101,24 +101,28 @@ _______________________________________________________________________________
 
 ---
 
-## 4. Work split — 5 members (simple)
+## 4. Work split — 5 members (**equal load**)
 
-Each person has **one main hat**. Help others **only after** your main tasks move.
+**Design rule:** Everyone ships **one primary notebook or script**, **one major paper chunk**, and **shared** polish. The lead is **not** “only meetings”—they own **real code + real paper text** like everyone else.
 
-| Member | Main hat | Main jobs (plain English) |
-|--------|----------|---------------------------|
-| **Member 1 — Lead (you)** | Coordinator + paper glue | Meetings, deadlines, **Overleaf** admin, **Introduction & Conclusion**, final PDF check, Canvas zip checklist. |
-| **Member 2** | Data + reading | Pick/lock dataset with team, **EDA** (plots, missing data), **Related Work** + references in paper, **dataset section** of Methods. |
-| **Member 3** | Code pipeline | **Preprocessing**, encoding, scaling, **README.txt**, `requirements.txt`, **Methods** (what the code does—must match the repo). |
-| **Member 4** | Models + results | Train baselines + XGBoost/LightGBM, **cross-validation**, tables and figures, **Experiments & Results** in paper. |
-| **Member 5** | Quality | Define **train/test rules**, check **leakage**, test **README on Windows**, **Discussion** (limits, overfitting) in paper. |
+| Member | Code / repo (owned artifact) | Paper (owned sections) | Admin (shared, not extra “free” work for one person) |
+|--------|------------------------------|-------------------------|------------------------------------------------------|
+| **Member 1 — Lead** | **`notebooks/04_inference_demo.ipynb`** (or `scripts/predict.py`): load **saved model** + sample rows, output prediction table; **end-to-end dry run** from clean clone before zip | **Abstract**, **Introduction**, **Conclusion**, **Acknowledgments**; **final Overleaf compile** (formatting, page limit) | **Runs meetings + milestones** (~same time as others’ admin); **Member 2** co-owns **meeting notes** each week so one person isn’t stuck scribing every time |
+| **Member 2** | **`notebooks/01_eda.ipynb`** + data dictionary | **Related Work**, **References** (`.bib`), **Materials — dataset** | Co-scribe **meeting notes** with Member 1 |
+| **Member 3** | **`notebooks/02_preprocess.ipynb`**: clean data, imputation, **encoding + scaling** (fit on train only); **`requirements.txt`**; **first draft** of **`README.txt`** (install + how to run preprocess) | **Materials — preprocessing & transformations** (must match `02`) | — |
+| **Member 4** | **`notebooks/03_train_eval.ipynb`**: **feature engineering** (new columns, optional title TF-IDF), baselines + XGBoost/LightGBM, CV, metrics, save **model artifact** for Member 1; export **`figures/`** + **`results.csv`** | **Materials — models & training setup**, **Experiments & Results** | — |
+| **Member 5** | **`notebooks/05_qc_checks.ipynb`**: reproduce metrics, **residual / error plots**, leakage spot-checks; **Windows README walkthrough** (screenshots or checklist) | **Discussion** | Final **README.txt** accuracy pass with Member 3 (both sign off) |
 
 ### Order of work (who waits for whom)
 
 1. **Member 2** shares data description → **Member 5** approves split/leakage rules.  
-2. **Member 3** builds cleaning + features using those rules → **Member 4** trains models.  
-3. **Member 4** shares numbers → **Member 5** checks + **Member 1** updates paper story.  
-4. **Member 1** pulls everything into one paper and one zip.
+2. **Member 3** finishes preprocess/transforms → **Member 4** builds features + trains + **saves model**.  
+3. **Member 4** hands off saved model path + schema → **Member 1** finishes **inference demo** notebook/script.  
+4. **Member 5** validates numbers + README on Windows → **Member 1** builds **final zip** + paper PDF.
+
+### Equal-load check (say this out loud in Week 2)
+
+“If anyone is doing **two** primary notebooks or **two** major paper leads, stop and rebalance.”
 
 ---
 

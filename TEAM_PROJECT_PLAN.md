@@ -51,19 +51,19 @@ The brief says **no commercial URLs, webpages, or websites** in the submission�
 
 ## 4. Roles — Member 1 through Member 5 (pick one slot each)
 
-The assignment defines **four** role types; **five** slots below split work so one person focuses on **ML experiments** while another owns **PM + paper integration**. Each person **claims one Member number** for the project (see **`DETAILED_WORK_DISTRIBUTION.md`** for dependencies).
+The assignment defines **four** role types; **five** slots below split work so **everyone** has **code + paper** (including the lead: **inference demo** + intro/conclusion). Each person **claims one Member number** for the project (see **`DETAILED_WORK_DISTRIBUTION.md`** for dependencies).
 
-| Member slot | Maps to course role | Core responsibilities |
-|-------------|---------------------|------------------------|
-| **Member 1** | Project Manager | Schedule, agenda, risk log, milestones; **Overleaf** admin; **Introduction**, **Conclusion**, **Acknowledgments**; final SCITEPRESS compile; submission checklist; cohesion. |
-| **Member 2** | Analyst | Dataset sourcing & licensing, EDA, requirements traceability (“rubric § → artifact”), **Related Work**, **References** (`.bib`), **Materials** (dataset part). |
-| **Member 3** | Programmer | Preprocessing, features, transforms, repo layout, **`requirements.txt`**, **`README.txt`**, **Materials** (implementation part). |
-| **Member 4** | ML/DL + experiments | Model comparison (e.g., sklearn + **XGBoost/LightGBM** vs optional **neural**), CV, metrics, **Experiments & Results** figures. |
-| **Member 5** | Quality Control | Train/val/test rules, leakage checks, acceptance tests, **README** on Windows; **Discussion** (limitations, over/underfitting). |
+| Member slot | Maps to course role | Core responsibilities (balanced: each person has **code + paper**) |
+|-------------|---------------------|----------------------------------------|
+| **Member 1** | Project Manager | **Code:** inference demo notebook/script using **saved model**; integration dry-run before zip. **Paper:** Abstract, Intro, Conclusion, Ack; final Overleaf compile. **Admin:** meetings/milestones (**Member 2** shares meeting notes—see `LEADER_KICKOFF_EASY_PLAN.md`). |
+| **Member 2** | Analyst | **Code:** EDA notebook + data dictionary. **Paper:** Related Work, References, Materials (dataset). **Admin:** co-scribe meeting notes. |
+| **Member 3** | Programmer | **Code:** preprocess + transforms (no feature invention—that’s Member 4); `requirements.txt`; README draft. **Paper:** Materials (preprocess & transformations). |
+| **Member 4** | ML/DL + experiments | **Code:** feature engineering + train/eval + saved model + figures. **Paper:** Materials (models/training) + Experiments & Results. |
+| **Member 5** | Quality Control | **Code:** QC notebook (residuals, metric reproduction, leakage checks); Windows README validation. **Paper:** Discussion. **README** final pass with Member 3. |
 
-*Note:* **One** person must take **Member 1** so submission and paper merge have a single owner.
+*Note:* **One** person must take **Member 1** for final zip + Overleaf compile, but their workload matches others via **inference code + major paper sections**.
 
-**Useful pairings:** Member 1 + Member 2 (paper skeleton & references); Member 3 + Member 5 (pipeline vs evaluation); Member 4 + Member 2 (result tables).
+**Useful pairings:** Member 1 + Member 4 (handoff: model artifact for demo); Member 3 + Member 5 (README); Member 4 + Member 5 (metrics for Discussion).
 
 ---
 
@@ -75,7 +75,10 @@ Draft in **Overleaf** (LaTeX); final in **SCITEPRESS template**.
 |---------|------|---------|
 | Introduction & problem statement | Member 1 | Member 2 |
 | Review of literature & related work | Member 2 | Member 4 |
-| Materials & methodology (data, prep, models) | Member 3 | Member 2, Member 4 |
+| Materials & methodology — dataset | Member 2 | Member 5 |
+| Materials & methodology — preprocess & transforms | Member 3 | Member 2 |
+| Materials & methodology — models & training | Member 4 | Member 3 |
+| Abstract | Member 1 | Member 2 |
 | Experiments & results (tables, figures) | Member 4 | Member 5 |
 | Discussion (interpretation, limitations) | Member 5 | Member 1 |
 | Conclusion & future work | Member 1 | All |
