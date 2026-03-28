@@ -8,7 +8,6 @@ Course project (Spring 2026). Team workspace for code, notebooks, and planning d
 
 | File | Purpose |
 |------|---------|
-| [**EASY_WORK_SPLIT_BALANCED.md**](./EASY_WORK_SPLIT_BALANCED.md) | **Balanced 5-way split** — who avoids overload |
 | [**LEADER_KICKOFF_EASY_PLAN.md**](./LEADER_KICKOFF_EASY_PLAN.md) | **Start here for meetings:** problem, deliverables, team decisions, 5-way split |
 | [TEAM_PROJECT_PLAN.md](./TEAM_PROJECT_PLAN.md) | Deliverables, rubric, timeline |
 | [DETAILED_WORK_DISTRIBUTION.md](./DETAILED_WORK_DISTRIBUTION.md) | Member 1–5 roles, dependencies, platforms |
