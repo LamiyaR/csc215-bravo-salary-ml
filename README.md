@@ -26,3 +26,20 @@ python -m venv .venv
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+## Connect this folder to GitHub
+
+This directory is already a **Git** repo (`main` branch). One teammate should:
+
+1. On [github.com](https://github.com): **New repository** → name e.g. `csc215-bravo-salary-ml` → **Private** → create **without** README (this folder already has one).
+2. In this folder, run (replace `YOUR_USER` and repo name):
+
+```bash
+cd "/Users/lamiyarampurawala/Downloads/CSC215-Bravo-SalaryML"
+git remote add origin https://github.com/YOUR_USER/csc215-bravo-salary-ml.git
+git push -u origin main
+```
+
+3. **Invite collaborators:** Repo → **Settings** → **Collaborators** → add teammates by GitHub username.
+
+**SSH instead of HTTPS:** use `git@github.com:YOUR_USER/csc215-bravo-salary-ml.git` as `origin` if you use SSH keys.
