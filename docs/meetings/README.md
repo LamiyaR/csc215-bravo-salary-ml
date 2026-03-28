@@ -1,3 +1,1 @@
-# Meeting notes
-
-Add one file per meeting: `YYYY-MM-DD.md` (copy from [`../WEEKLY_STATUS_TEMPLATE.md`](../WEEKLY_STATUS_TEMPLATE.md)).
+Save notes as `2026-04-01.md` (use your meeting date). Short bullets are fine.

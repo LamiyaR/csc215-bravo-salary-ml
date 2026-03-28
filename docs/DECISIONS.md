@@ -1,17 +1,17 @@
-# Team decision log
+# Team decisions
 
-**Rule:** Date every entry. If the team changes dataset, target, novelty, or split rules, **add a row** — do not edit old entries silently.
+Add a **new row** when something changes. Do not delete old rows.
 
-| Date | Decision | Rationale | Agreed by |
-|------|----------|-----------|-----------|
-| _YYYY-MM-DD_ | _Example: Primary dataset = …_ | _Kaggle license OK for class_ | _all 5_ |
+| Date | What we decided | Who agreed |
+|------|-----------------|------------|
+| | | |
 
-## Fields to lock in Meeting 1
+## Meeting 1 — fill in
 
-- **Dataset (name + link):**  
-- **Target variable:**  
-- **Novelty / contribution (one sentence):**  
-- **Train / val / test split + seed:**  
-- **Overleaf link:**  
-- **External progress tracker link (Notion / Trello / Sheet):**  
-- **Chat + meeting link:**  
+- Dataset (name + link):  
+- Target column:  
+- One-line “what’s new” for the paper:  
+- Train / val / test split + random seed:  
+- Overleaf link:  
+- Chat link:  
+- Meeting link:  
